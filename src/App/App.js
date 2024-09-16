@@ -2,6 +2,7 @@ import './App.css';
 import Movies from '../Movies/Movies';
 import movieData from '../movieData';
 import { useState, useEffect } from 'react';
+import sortArrow from '../icons/sort_arrows.png';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -11,10 +12,10 @@ function App() {
   }, []);
 
   return (
-    <main className="App">
+    <main className='App'>
       <header>
         <h1>rancid tomatillos</h1>
-        <button>sort by rating</button>
+        <button><img src={sortArrow}/>sort by rating</button>
       </header>
       <Movies movies={movies}/>
     </main>

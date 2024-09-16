@@ -7,8 +7,8 @@ function Movies({ movies }) {
   }
 
   return (
-      <section className="Movies">
-        {showMovies()}
+      <section className='Movies'>
+        {/* {showMovies()} */}
       </section>
   );
 }
