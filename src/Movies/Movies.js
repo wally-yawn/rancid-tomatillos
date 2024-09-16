@@ -1,14 +1,14 @@
 import MoviePoster from '../MoviePoster/MoviePoster';
 import './Movies.css';
 
-function Movies({ movies }) {
+function Movies({ movies, updateVotes, viewMovie }) {
   const showMovies = () => {
-      return movies.map(movie => <MoviePoster movie={movie} key={movie.id}/>)
+      return movies.map(movie => <MoviePoster movie={movie} key={movie.id} updateVotes={updateVotes} viewMovie={viewMovie} />)
   }
 
   return (
       <section className='Movies'>
-        {/* {showMovies()} */}
+        {showMovies()}
       </section>
   );
 }

@@ -35,15 +35,16 @@ header button {
 header button img {
   height: 36px;
   width: 36px;
+  margin-right: 5px;
 }
 
-button:hover {
+header button:hover {
   color: rgba(255, 255, 255, 1);
   box-shadow: 0 5px 15px rgba(92, 102, 182, 0.4);
   cursor: pointer;
 }
 
-button:active { 
+header button:active { 
   transform: scale(0.98); 
   box-shadow: 3px 2px 22px 1px rgba(92, 102, 182, 0.4); 
 } 
