@@ -7,7 +7,7 @@ function MoviePoster({ movie, updateVotes, viewMovie }) {
       <img onClick={() => viewMovie(movie.id)} className='movie-poster' src={movie.poster_path}/>
       <div className='vote-box'>
         <button onClick={() => updateVotes(movie.id)}><img src={upvoteArrow}/></button>
-        <p>{movie.votes}</p>
+        <p>{movie.vote_count}</p>
       </div>
     </section>
   );

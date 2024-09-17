@@ -1,33 +1,45 @@
 import './App.css';
 import Movies from '../Movies/Movies';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import movieData from '../movieData';
 import { useState, useEffect } from 'react';
 import sortArrow from '../icons/sort_arrows.png';
 import sortAlpha from '../icons/sort_alpha.png';
+import homeButton from '../icons/home.png';
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [moviesByRating, setMoviesByRating] = useState([]);
+  const [currView, setCurrView] = useState([]);
   const [sorted, setSorted] = useState(false);
   const [individualMovie, setIndividualMovie] = useState({});
   const [individualView, setIndividualView] = useState(false);
 
   useEffect(() => {
-    setMovies(movieData.movies);
-    setMoviesByRating(movieData.movies);
+    getMovies();
   }, []);
 
-  const updateVotes = (id) => {
-    let moviesCopy = [...movies];
-
-    moviesCopy.forEach(movie => {
-      if (movie.id === id) {
-        movie.votes++
-      }
+  const getMovies = () => {
+    fetch('http://localhost:3001/api/v1/movies')
+    .then(res => res.json())
+    .then(data => {
+      setMovies(data)
+      setCurrView(data)
     })
+    .catch(err => console.log(err))
+  }
 
-    setMovies(moviesCopy);
+  const updateVotes = (id) => {
+    fetch('http://localhost:3001/api/v1/movies', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id })
+    })
+    .then(res => res.json())
+    .then(data => {
+      setMovies(data)
+      setCurrView(data)
+    })
   }
 
   const sortMovies = () => {
@@ -35,12 +47,12 @@ function App() {
 
     if (!sorted) {
       moviesCopy.sort((a, b) => {
-        return b.votes - a.votes
+        return b.vote_count - a.vote_count
       })
     }
     
     setSorted(!sorted)
-    setMoviesByRating(moviesCopy);
+    setCurrView(moviesCopy);
   }
 
   const viewMovie = (id) => {
@@ -50,18 +62,32 @@ function App() {
     setIndividualView(true);
   }
 
+  const goHome = () => {
+    setIndividualView(false);
+  }
+
   return (
     <main className='App'>
-      <header>
-        <h1>rancid tomatillos</h1>
-        {sorted 
-          ? <button onClick={(event) => sortMovies(event)}><img src={sortAlpha}/>sort alphabetically</button>
-          : <button onClick={(event) => sortMovies(event)}><img src={sortArrow}/>sort by rating</button>
-        }
-      </header>
+
       {individualView
-      ? <MovieDetails movie={individualMovie}/>
-      : <Movies movies={moviesByRating} updateVotes={updateVotes} viewMovie={viewMovie} />}
+      ? <>
+        <header>
+          <h1>rancid tomatillos</h1>
+          <img onClick={goHome} src={homeButton}/>
+        </header>
+        <MovieDetails movie={individualMovie}/> 
+      </>
+      : <>
+        <header>
+          <h1>rancid tomatillos</h1>
+          {sorted 
+              ? <button onClick={(event) => sortMovies(event)}><img src={sortAlpha}/>sort alphabetically</button>
+              : <button onClick={(event) => sortMovies(event)}><img src={sortArrow}/>sort by rating</button>
+            }
+        </header>
+        <Movies movies={currView} updateVotes={updateVotes} viewMovie={viewMovie} />
+      </>
+      }
       
     </main>
   );
