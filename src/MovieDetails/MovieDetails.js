@@ -1,8 +1,6 @@
 import './MovieDetails.css';
 
 function MovieDetails({ movie }) {
-  console.log(movie)
-
   const getGenres = () => {
     return movie.genre_ids.map(genre => <p className='genre' >{genre}</p>)
   }
