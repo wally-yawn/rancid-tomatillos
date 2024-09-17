@@ -1,18 +1,9 @@
 import './MovieDetails.css';
 
-function MovieDetails({ movie }) {
-  const getGenres = () => {
-    return movie.genre_ids.map(genre => <p className='genre' >{genre}</p>)
-  }
-
+function MovieDetails() {
   return (
     <section className='MovieDetails'>
-      <img className='backdrop' src={movie.backdrop_path}/>
-      <div className='movie-details'>
-        <h2>{movie.title}</h2>
-        <div>{getGenres()}</div>
-        <p className='overview'>{movie.overview}</p>
-      </div>
+      <p>Movie Details go here!</p>
     </section>
   );
 }
