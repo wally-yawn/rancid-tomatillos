@@ -6,12 +6,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15px 15px 7.5px 15px;
+  padding-bottom: 7.5px;
+  box-shadow: 3px 2px 22px 1px rgba(92, 102, 182, 1); 
+}
+
+.MoviePoster:hover {
+  transform: scale(0.99); 
+  box-shadow: 10px 9px 29px 8px rgba(92, 102, 182, 1); 
 }
 
 .movie-poster {
   width: 200px;
-  border-radius: 10px;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
   cursor: pointer;
 }
 
