@@ -1,6 +1,6 @@
 # Rancid Tomatillos - Starter Repo
 
-## [The project spec for Rancid Tomatillos can be found here.](https://curriculum.turing.edu/module3/projects/)
+## [The project spec for Rancid Tomatillos can be found here.](https://curriculum.turing.edu/module3/projects/rancid-tomatillos)
 
 ## Set Up
 1.  Fork this repo
