@@ -2,7 +2,7 @@
 
 ## Set Up
 1. Fork this repo
-2. Clone **and rename** this repo: `git clone [remote-address] [new-name]`
+2. Clone **and rename** this repo: `git clone [remote-address] [new-name]`  
    For example: `git clone git@github.com:turingschool-examples/rancid-tomatillos-starter.git rancid-tomatillos`
 4. `cd` into the directory
 5. Install necessary dependencies with `npm install`
