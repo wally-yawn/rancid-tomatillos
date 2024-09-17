@@ -1,5 +1,7 @@
 # Rancid Tomatillos - Starter Repo
 
+## [The project spec for Rancid Tomatillos can be found here.](https://curriculum.turing.edu/module3/projects/)
+
 ## Set Up
 1.  Fork this repo
 2.  Clone **and rename** this repo: `git clone [remote-address] [new-name]`  
