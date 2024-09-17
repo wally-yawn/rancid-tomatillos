@@ -17,34 +17,40 @@ header {
 h1 {
   color: white;
   font-size: 56px;
+  letter-spacing: 5px;
 }
 
-header button {
-  border: none;
+.search {
   border-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #97c2ec;
-  color: white;
-  font-size: 18px;
   padding: 3px 18px;
   height: 50px;
 }
 
-header button img {
+.search img {
   height: 36px;
   width: 36px;
   margin-right: 5px;
 }
 
-header button:hover {
-  color: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px rgba(92, 102, 182, 0.4);
-  cursor: pointer;
+.search input {
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
 }
 
-header button:active { 
-  transform: scale(0.98); 
-  box-shadow: 3px 2px 22px 1px rgba(92, 102, 182, 0.4); 
+.search input:focus { 
+  outline: none;
+  box-shadow: 3px 2px 22px 1px rgba(92, 102, 182, 1); 
 } 
+
+.no-movies-message {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px;
+  color: white;
+}

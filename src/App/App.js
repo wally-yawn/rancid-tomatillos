@@ -2,16 +2,14 @@ import './App.css';
 import Movies from '../Movies/Movies';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import { useState, useEffect } from 'react';
-import sortArrow from '../icons/sort_arrows.png';
-import sortAlpha from '../icons/sort_alpha.png';
 import homeButton from '../icons/home.png';
+import searchIcon from '../icons/search.png';
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [currView, setCurrView] = useState([]);
-  const [sorted, setSorted] = useState(false);
   const [individualMovie, setIndividualMovie] = useState({});
   const [individualView, setIndividualView] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     getMovies();
@@ -22,7 +20,6 @@ function App() {
     .then(res => res.json())
     .then(data => {
       setMovies(data)
-      setCurrView(data)
     })
     .catch(err => console.log(err))
   }
@@ -38,37 +35,36 @@ function App() {
     .then(res => res.json())
     .then(data => {
       setMovies(data)
-      setCurrView(data)
     })
-  }
-
-  const sortMovies = () => {
-    let moviesCopy = [...movies];
-
-    if (!sorted) {
-      moviesCopy.sort((a, b) => {
-        return b.vote_count - a.vote_count
-      })
-    }
-    
-    setSorted(!sorted)
-    setCurrView(moviesCopy);
+    .catch(err => console.log(err))
   }
 
   const viewMovie = (id) => {
-    let movie = {id, title: "Fake Movie Title", poster_path: "https://image.tmdb.org/t/p/original//7G2VvG1lU8q758uOqU6z2Ds0qpA.jpg", backdrop_path: "https://image.tmdb.org/t/p/original//oazPqs1z78LcIOFslbKtJLGlueo.jpg", release_date: "2019-12-04", overview: "Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!", average_rating: 6, genres: ["Drama"], budget:63000000, revenue:100853753, runtime:139, tagline: "It's a movie!" };
-    
-    setIndividualMovie(movie);
-    setIndividualView(true);
+    fetch(`http://localhost:3001/api/v1/movies/${id}`)
+    .then(res => res.json())
+    .then(data => {
+      setIndividualMovie(data);
+      setIndividualView(true);
+    })
+    .catch(err => console.log(err))
   }
 
   const goHome = () => {
     setIndividualView(false);
   }
 
+  const searchMovies = () => {
+    let filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(searchQuery.toLowerCase()))
+
+    if (!filteredMovies.length) {
+      return <p className='no-movies-message'>No movies found that match your search.</p>
+    } else {
+      return <Movies movies={filteredMovies} updateVotes={updateVotes} viewMovie={viewMovie} />
+    }
+  }
+
   return (
     <main className='App'>
-
       {individualView
       ? <>
         <header>
@@ -80,12 +76,20 @@ function App() {
       : <>
         <header>
           <h1>rancid tomatillos</h1>
-          {sorted 
-              ? <button onClick={(event) => sortMovies(event)}><img src={sortAlpha}/>sort alphabetically</button>
-              : <button onClick={(event) => sortMovies(event)}><img src={sortArrow}/>sort by rating</button>
-            }
+          <form className='search'>
+            <img src={searchIcon}/>
+            <input 
+              type='text'
+              name='search'
+              value={searchQuery}
+              onChange={event => setSearchQuery(event.target.value)}
+            />
+          </form>
         </header>
-        <Movies movies={currView} updateVotes={updateVotes} viewMovie={viewMovie} />
+        { searchQuery 
+        ? <>{searchMovies()}</>
+        : <Movies movies={movies} updateVotes={updateVotes} viewMovie={viewMovie} />
+        }
       </>
       }
       
