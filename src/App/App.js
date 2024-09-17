@@ -1,11 +1,13 @@
 import './App.css';
-
-// Example of importing an image:
 import searchIcon from '../icons/search.png';
 
-// Example imports:
-// import MoviesContainer from '../MoviesContainer/MoviesContainer';
+// Example imports (for later):
 // import { useState, useEffect } from 'react';
+// import moviePosters from '../data/movie_posters';
+import movieDetails from '../data/movie_details';
+// import MoviesContainer from '../MoviesContainer/MoviesContainer';
+
+console.log(movieDetails)
 
 function App() {
   return (
