@@ -1,4 +1,4 @@
-# Rancid Tomatillos - Complete Frontend
+# Rancid Tomatillos - Starter Repo
 
 ## Set Up
 
