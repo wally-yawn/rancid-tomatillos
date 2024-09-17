@@ -16,7 +16,7 @@
 }
 
 .movie-poster {
-  width: 200px;
+  width: 225px;
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
   cursor: pointer;
