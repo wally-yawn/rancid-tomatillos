@@ -1,4 +1,5 @@
 import './App.css';
+import MainPage from '../MainPage/MainPage'
 import searchIcon from '../icons/search.png';
 
 // Example imports (for later):
@@ -10,9 +11,14 @@ import searchIcon from '../icons/search.png';
 function App() {
   return (
     <main className='App'>
-      <header>
-        <h1>rancid tomatillos</h1>
-      </header>
+      <body>
+        <header>
+          <h1>rancid tomatillos</h1>
+        </header>
+        <section>
+          <MainPage mainPage={MainPage} />
+        </section>
+      </body>
     </main>
   );
 }
