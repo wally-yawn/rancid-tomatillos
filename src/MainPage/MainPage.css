@@ -1,0 +1,13 @@
+* {
+  /* border: 3px solid black; */
+  padding: 0;
+  }
+
+  .movie-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    padding: 20px;
+  }
