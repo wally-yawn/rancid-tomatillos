@@ -11,14 +11,12 @@ import searchIcon from '../icons/search.png';
 function App() {
   return (
     <main className='App'>
-      <body>
         <header>
           <h1>rancid tomatillos</h1>
         </header>
         <section>
           <MainPage mainPage={MainPage} />
         </section>
-      </body>
     </main>
   );
 }
