@@ -4,8 +4,9 @@
   height: auto;
   margin: 5px;
   justify-content: center;
-  background-color:white;
+  background-color: whitesmoke;
   align-content: center;
+  border: solid .1px;
   border-radius: 10px;
 }
 
@@ -27,7 +28,7 @@ img {
 
 .upvote, .downvote {
   padding: 2px;
-  background-color: white;
+  background: none;
   max-height: 40px;
   max-width: 40px;
   border: none;
