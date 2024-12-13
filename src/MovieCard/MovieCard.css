@@ -1,8 +1,8 @@
 .movie_card{
   display: block;
-  width: 240px;
+  max-width: 20%; 
   height: auto;
-  margin: 5px;
+  margin: 25px;
   justify-content: center;
   background-color: whitesmoke;
   align-content: center;

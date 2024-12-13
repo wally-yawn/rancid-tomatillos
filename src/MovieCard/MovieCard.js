@@ -1,9 +1,28 @@
+import { useState, useEffect } from 'react';
 import './MovieCard.css';
 import upvoteIcon from '../icons/upvote.png';
 import downvoteIcon from '../icons/downvote.png';
 
-function MoviePoster({id,posterPath,votes,title}) {
+function MovieCard({id,posterPath,votes,title}) {
   console.log("poster path: ", {posterPath})
+  const [voteCount, setVotes] = useState(votes)
+
+  // useEffect(() => {
+  //   getVotes();
+  // })
+
+  function getVotes() {
+    setVotes();
+  }
+
+  function upvote() {
+    setVotes(voteCount + 1)
+  }
+  
+  function downvote() {
+    setVotes(voteCount - 1)
+  }
+
   return (
     <div className='movie_card'>
       <img src={posterPath} alt={title}></img>
@@ -11,13 +30,13 @@ function MoviePoster({id,posterPath,votes,title}) {
         <button className='upvote' aria-label='Upvote'>
           <img src={upvoteIcon}
            alt="upvote"
-           onClick={() => console.log('Upvoted!')}/>
+           onClick={() => upvote(id)}/>
         </button>
-        <p className='votes' >{votes}</p>
+        <p className='votes' >{voteCount}</p>
         <button className='downvote' aria-label='Downvote'>
-          <img src={downvoteIcon} 
+          <img src={downvoteIcon}
           alt="downvote"
-          onClick={() => console.log('Downvoted!')}/>
+          onClick={() => downvote(id)}/>
         </button>
 
       </section>
@@ -32,4 +51,4 @@ function nil() {
 function alsoNil() {
   console.log("also nothing")
 }
-export default MoviePoster;
+export default MovieCard;

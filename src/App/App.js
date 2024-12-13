@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import MainPage from '../MainPage/MainPage'
 import searchIcon from '../icons/search.png';
@@ -9,6 +10,7 @@ import searchIcon from '../icons/search.png';
 // import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
 function App() {
+
   return (
     <main className='App'>
         <header>
