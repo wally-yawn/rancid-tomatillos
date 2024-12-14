@@ -4,25 +4,26 @@
   }
 
 body {
-  background-color: #3e49b1;
+  background-color: whitesmoke;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px;
+  padding: 30px;
 }
 
 h1 {
-  color: white;
+  color: black;
   font-size: 56px;
   letter-spacing: 5px;
+  text-shadow: 1px 2px 3px greenyellow, -1px -1px 3px red, 1px 1px 3px blue;
 }
 
 p {
   font-size: 20px;
   text-align: center;
   margin-top: 50px;
-  color: white;
+  color: whitesmoke;
 }
