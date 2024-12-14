@@ -16,9 +16,9 @@ function App() {
         <header>
           <h1>rancid tomatillos...</h1>
         </header>
-        <section>
+        <body>
           <MainPage mainPage={MainPage} />
-        </section>
+        </body>
     </main>
   );
 }

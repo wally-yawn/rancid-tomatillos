@@ -6,15 +6,7 @@ import downvoteIcon from '../icons/downvote.png';
 function MovieCard({id,posterPath,votes,title}) {
   console.log("poster path: ", {posterPath})
   const [voteCount, setVotes] = useState(votes)
-
-  // useEffect(() => {
-  //   getVotes();
-  // })
-
-  function getVotes() {
-    setVotes();
-  }
-
+  
   function upvote() {
     setVotes(voteCount + 1)
   }
