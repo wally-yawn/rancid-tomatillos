@@ -1,0 +1,11 @@
+.MovieDetails{
+  /* display: block;
+  max-width: 100%; 
+  height: auto;
+  margin: 25px;
+  justify-content: center;
+  background-color: whitesmoke;
+  align-content: center; */
+  border: solid 3px black;
+  /* border-radius: 10px; */
+}

@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import './App.css';
 import MainPage from '../MainPage/MainPage'
+
 import searchIcon from '../icons/search.png';
+import MovieDetails from '../MovieDetails/MovieDetails';
 
 // Example imports (for later):
 // import { useState, useEffect } from 'react';
 // import moviePosters from '../data/movie_posters';
-// import movieDetails from '../data/movie_details';
+
 // import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
 function App() {
+
+  const [movieDetailsId, setMovieDetailsID] = useState(129) //update this to null
+  //add function to change this state passed to each MovieCard
 
   return (
     <main className='App'>
@@ -17,7 +22,8 @@ function App() {
           <h1>rancid tomatillos...</h1>
         </header>
         <section>
-          <MainPage mainPage={MainPage} />
+        {movieDetailsId !== null ? (<MovieDetails id={movieDetailsId} setMovieDetailsID={setMovieDetailsID} />) 
+          : (<MainPage />)}
         </section>
     </main>
   );
