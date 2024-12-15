@@ -20,12 +20,12 @@ function App() {
     <main className='App'>
         <header>
           <h1>rancid tomatillos...</h1>
-          {/* make this button conditional */}
-          <button className='home-button' aria-label='home'>
-          <img src={homeIcon}
-            alt="home"
-            onClick={() => setMovieDetailsID(null)}/>
-          </button>
+          {movieDetailsId !== null && (
+            <button className='home-button' aria-label='home'>
+            <img src={homeIcon}
+              alt="home"
+              onClick={() => setMovieDetailsID(null)}/>
+            </button>)}
         </header>
         <section>
         {movieDetailsId !== null ? (<MovieDetails id={movieDetailsId}/>) 
