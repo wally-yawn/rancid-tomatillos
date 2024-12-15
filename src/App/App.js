@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import MainPage from '../MainPage/MainPage'
-
+import homeIcon from '../icons/home.png';
 import searchIcon from '../icons/search.png';
 import MovieDetails from '../MovieDetails/MovieDetails';
 
@@ -20,9 +20,15 @@ function App() {
     <main className='App'>
         <header>
           <h1>rancid tomatillos...</h1>
+          {/* make this button conditional */}
+          <button className='home-button' aria-label='home'>
+          <img src={homeIcon}
+            alt="home"
+            onClick={() => setMovieDetailsID(null)}/>
+          </button>
         </header>
         <section>
-        {movieDetailsId !== null ? (<MovieDetails id={movieDetailsId} setMovieDetailsID={setMovieDetailsID} />) 
+        {movieDetailsId !== null ? (<MovieDetails id={movieDetailsId}/>) 
           : (<MainPage />)}
         </section>
     </main>
