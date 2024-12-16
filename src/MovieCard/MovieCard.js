@@ -3,7 +3,7 @@ import './MovieCard.css';
 import upvoteIcon from '../icons/upvote.png';
 import downvoteIcon from '../icons/downvote.png';
 
-function MovieCard({id,posterPath,votes,title}) {
+function MovieCard({id,posterPath,votes,title,setMovieDetailsID}) {
   const [voteCount, setVotes] = useState(votes)
 
   function getVotes() {
@@ -20,7 +20,7 @@ function MovieCard({id,posterPath,votes,title}) {
 
   return (
     <div className='movie_card'>
-      <img src={posterPath} alt={title}></img>
+      <img src={posterPath} alt={title} onClick={() => setMovieDetailsID(id)}/>
       <section className='voting'>
         <button className='upvote' aria-label='Upvote'>
           <img src={upvoteIcon}
@@ -33,7 +33,6 @@ function MovieCard({id,posterPath,votes,title}) {
           alt="downvote"
           onClick={() => downvote(id)}/>
         </button>
-
       </section>
     </div>
   );

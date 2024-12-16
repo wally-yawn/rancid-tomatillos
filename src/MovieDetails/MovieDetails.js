@@ -14,7 +14,7 @@ function MovieDetails(props) {
 
   return (
     <section className='MovieDetails'>
-        <img className = 'home-button' src = {movieDetailsInfo.backdrop_path} alt = {movieDetailsInfo.title}/>
+        <img className = 'movie-backdrop' src = {movieDetailsInfo.backdrop_path} alt = {movieDetailsInfo.title}/>
         <h2>{movieDetailsInfo.title}</h2>
         <section className='genres'>
           {genreCards}

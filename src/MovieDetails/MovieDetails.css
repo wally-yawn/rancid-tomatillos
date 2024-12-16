@@ -1,5 +1,6 @@
 .MovieDetails{
-  display: block;
+  display: flex;
+  flex-direction: column;
   max-width: 80%; 
   height: auto;
   margin: 25px;
@@ -7,5 +8,15 @@
   background-color: whitesmoke;
   align-content: center;
   /* border: solid 3px black; */
-  /* border-radius: 10px; */
+  border-radius: 10px;
+}
+
+.genres{
+  display: flex;
+  flex-direction: row;
+  border: 3px solid black;
+}
+
+h2 {
+  border: solid 3px black;
 }

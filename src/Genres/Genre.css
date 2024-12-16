@@ -1,4 +1,4 @@
-.Genre{
+p.genre-title {
   /* display: block;
   max-width: 80%; 
   height: auto;
@@ -7,5 +7,7 @@
   background-color: whitesmoke;
   align-content: center; */
   border: solid 3px black;
+  margin: 10px;
+  padding: 10px;
   /* border-radius: 10px; */
 }

@@ -29,7 +29,7 @@ function App() {
         </header>
         <section>
         {movieDetailsId !== null ? (<MovieDetails id={movieDetailsId}/>) 
-          : (<MainPage />)}
+          : (<MainPage setMovieDetailsID={setMovieDetailsID}/>)}
         </section>
     </main>
   );
