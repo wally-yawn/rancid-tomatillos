@@ -26,14 +26,3 @@ function Movies() {
 }
   
 export default Movies;
-
-
-// return (
-//   <Card
-//     title={idea.title}
-//     description={idea.description}
-//     id={idea.id}
-//     key={idea.id}
-//     deleteIdea={deleteIdea}
-//   />
-// )

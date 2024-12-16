@@ -4,12 +4,7 @@ import upvoteIcon from '../icons/upvote.png';
 import downvoteIcon from '../icons/downvote.png';
 
 function MovieCard({id,posterPath,votes,title}) {
-  console.log("poster path: ", {posterPath})
   const [voteCount, setVotes] = useState(votes)
-
-  // useEffect(() => {
-  //   getVotes();
-  // })
 
   function getVotes() {
     setVotes();
@@ -29,8 +24,8 @@ function MovieCard({id,posterPath,votes,title}) {
       <section className='voting'>
         <button className='upvote' aria-label='Upvote'>
           <img src={upvoteIcon}
-           alt="upvote"
-           onClick={() => upvote(id)}/>
+            alt="upvote"
+            onClick={() => upvote(id)}/>
         </button>
         <p className='votes' >{voteCount}</p>
         <button className='downvote' aria-label='Downvote'>
