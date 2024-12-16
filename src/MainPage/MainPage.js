@@ -1,19 +1,19 @@
+import { useState } from 'react';
 import './MainPage.css';
-import { useState, useEffect } from 'react';
-import moviePosters from '../data/movie_posters';
 import MovieCard from '../MovieCard/MovieCard'
 
 function Movies() {
 
-  const [movies, setMovies] = useState(moviePosters)
+  const [movies, setMovies] = useState(movieCards)
 
   const movieCards = movies.map(movie => {
     return (
       <MovieCard
-        posterPath={movie.poster_path}
-        key={movie.id}
         id={movie.id}
+        posterPath={movie.poster_path}
         votes={movie.vote_count}
+        title={movie.title}
+        key={movie.id}
         />
     )
   })

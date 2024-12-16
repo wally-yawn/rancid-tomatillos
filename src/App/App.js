@@ -1,13 +1,7 @@
-import { useState } from 'react';
+import React from 'react';
+import MainPage from '../MainPage/MainPage';
 import './App.css';
-import MainPage from '../MainPage/MainPage'
-import searchIcon from '../icons/search.png';
-
-// Example imports (for later):
-// import { useState, useEffect } from 'react';
-// import moviePosters from '../data/movie_posters';
-// import movieDetails from '../data/movie_details';
-// import MoviesContainer from '../MoviesContainer/MoviesContainer';
+// import searchIcon from '../icons/search.png';
 
 function App() {
 

@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  transition: transform .2s;
   }
 
 body {
@@ -10,9 +11,7 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 15px;
-  padding-bottom: 0px;
 }
 
 h1 {
@@ -26,5 +25,5 @@ p {
   font-size: 20px;
   text-align: center;
   margin-top: 50px;
-  color: whitesmoke;
+  color: black;
 }

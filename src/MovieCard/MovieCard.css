@@ -1,12 +1,13 @@
 .movie_card{
   display: block;
-  max-width: 20%; 
+  max-width: 15%;
+  min-width: 200px; 
   height: auto;
   margin: 25px;
   justify-content: center;
   background-color: whitesmoke;
   align-content: center;
-  /* border: solid .1px; */
+  border-style: hidden;
   border-radius: 10px;
 }
 

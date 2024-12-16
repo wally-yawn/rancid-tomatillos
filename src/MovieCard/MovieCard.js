@@ -1,18 +1,43 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './MovieCard.css';
 import upvoteIcon from '../icons/upvote.png';
 import downvoteIcon from '../icons/downvote.png';
 
 function MovieCard({id,posterPath,votes,title}) {
-  console.log("poster path: ", {posterPath})
-  const [voteCount, setVotes] = useState(votes)
-  
+  console.log("poster path: ", posterPath);
+  const [voteCount, setVotes] = useState(votes);
+  const url = " https://rancid-tomatillos-api.onrender.com/api/v1/movies";
+
   function upvote() {
-    setVotes(voteCount + 1)
-  }
-  
+     fetch(`${url}/${id}`, {
+      method:'PATCH',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ vote_direction: "up" })
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to upvote. Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => setVotes(data.newVoteCount))
+    .catch(error => console.log(error.message))
+  };  
+
   function downvote() {
-    setVotes(voteCount - 1)
+    fetch(`${url}/${id}`, {
+      method:'PATCH',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ vote_direction: "down" })
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to downvote. Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => setVotes(data.newVoteCount))
+    .catch(error => console.log(error.message))
   }
 
   return (
@@ -34,13 +59,5 @@ function MovieCard({id,posterPath,votes,title}) {
       </section>
     </div>
   );
-}
-
-function nil() {
-  console.log("nothing")
-}
-
-function alsoNil() {
-  console.log("also nothing")
 }
 export default MovieCard;
