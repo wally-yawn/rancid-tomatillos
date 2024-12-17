@@ -1,5 +1,7 @@
 .genre-title {
-  border: solid 3px black;
   margin: 10px;
-  padding: 10px;
+  padding: 8px;
+  background-color: purple;
+  color:aliceblue;
+  border-radius: 15px;
 }

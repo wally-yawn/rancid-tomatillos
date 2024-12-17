@@ -1,26 +1,21 @@
 .MovieDetails{
   display: flex;
   flex-direction: column;
-  max-width: 80%; 
-  /* height: auto; */
-  margin: 25px;
-  /* justify-content: center; */
-  background-color: whitesmoke;
-  /* align-content: center; */
-  border: solid 3px black;
+  max-width: 100%; 
+  margin: 35px;
+  background-color: lightblue;
   border-radius: 10px;
 }
 
 .genres{
   display: flex;
   flex-direction: row;
-  border: 3px solid black;
   justify-content: center;
-  /* mar */
 }
 
 .movie-title {
-  border: solid 3px red;
+  letter-spacing: 3px;
+  margin-top: 10px;
   align-content: center;
   text-align: center;
 }
@@ -28,4 +23,5 @@
 .overview {
   padding: 10px;
   margin-top: auto;
+  font-size: medium;
 }
