@@ -1,10 +1,10 @@
 import './MovieDetails.css';
-import movieDetails from '../data/movie_details'
 import { useState } from 'react';
+import movieDetails from '../data/movie_details'
 import Genre from '../Genres/Genre'
 
 function MovieDetails(props) {
-  const [movieDetailsInfo, setMovieDetails] = useState(movieDetails)
+  const [movieDetailsInfo, setMovieDetails] = useState(props.movieDetails)
 
   const genreCards = movieDetailsInfo.genre_ids.map(genre_id => {
     return (

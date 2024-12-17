@@ -4,9 +4,8 @@ import upvoteIcon from '../icons/upvote.png';
 import downvoteIcon from '../icons/downvote.png';
 
 function MovieCard({id,posterPath,votes,title}) {
-  console.log("poster path: ", posterPath);
   const [voteCount, setVotes] = useState(votes);
-  const url = " https://rancid-tomatillos-api.onrender.com/api/v1/movies";
+  const url = "https://rancid-tomatillos-api.onrender.com/api/v1/movies";
 
   function upvote() {
      fetch(`${url}/${id}`, {
@@ -47,13 +46,13 @@ function MovieCard({id,posterPath,votes,title}) {
         <button className='upvote' aria-label='Upvote'>
           <img src={upvoteIcon}
             alt="upvote"
-            onClick={() => upvote(id)}/>
+            onClick={() => upvote}/>
         </button>
         <p className='votes' >{voteCount}</p>
         <button className='downvote' aria-label='Downvote'>
           <img src={downvoteIcon}
           alt="downvote"
-          onClick={() => downvote(id)}/>
+          onClick={() => downvote}/>
         </button>
 
       </section>

@@ -1,7 +1,6 @@
 import React from 'react';
 import MainPage from '../MainPage/MainPage';
 import './App.css';
-import MainPage from '../MainPage/MainPage'
 import homeIcon from '../icons/home.png';
 import searchIcon from '../icons/search.png';
 import MovieDetails from '../MovieDetails/MovieDetails';
