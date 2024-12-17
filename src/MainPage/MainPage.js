@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import moviePosters from '../data/movie_posters';
 import MovieCard from '../MovieCard/MovieCard'
 
-function Movies() {
+function Movies(props) {
 
   const [movies, setMovies] = useState(moviePosters)
 
@@ -14,6 +14,7 @@ function Movies() {
         key={movie.id}
         id={movie.id}
         votes={movie.vote_count}
+        setMovieDetailsID={props.setMovieDetailsID}
         />
     )
   })

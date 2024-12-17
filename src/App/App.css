@@ -11,7 +11,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px;
+  padding: 10px;
 }
 
 h1 {
@@ -26,4 +26,21 @@ p {
   text-align: center;
   margin-top: 50px;
   color: black;
+}
+
+.home-button {
+  max-height: 66px;
+  max-width: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: whitesmoke;
+  margin: 0;
+  border: none;
+}
+
+.home-button img {
+  max-height: 100%;
+  width: auto;
 }

@@ -1,11 +1,7 @@
-.Genre{
-  /* display: block;
-  max-width: 80%; 
-  height: auto;
-  margin: 25px;
-  justify-content: center;
-  background-color: whitesmoke;
-  align-content: center; */
-  border: solid 3px black;
-  /* border-radius: 10px; */
+.genre-title {
+  margin: 10px;
+  padding: 8px;
+  background-color: purple;
+  color:aliceblue;
+  border-radius: 15px;
 }
