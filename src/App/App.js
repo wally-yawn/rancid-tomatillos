@@ -13,8 +13,7 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 
 function App() {
 
-  const [movieDetailsId, setMovieDetailsID] = useState(129) //update this to null
-  //add function to change this state passed to each MovieCard
+  const [movieDetailsId, setMovieDetailsID] = useState(null)
 
   return (
     <main className='App'>
@@ -29,7 +28,7 @@ function App() {
         </header>
         <section>
         {movieDetailsId !== null ? (<MovieDetails id={movieDetailsId}/>) 
-          : (<MainPage />)}
+          : (<MainPage setMovieDetailsID={setMovieDetailsID}/>)}
         </section>
     </main>
   );

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './MainPage.css';
 import MovieCard from '../MovieCard/MovieCard'
 
-function Movies() {
+function Movies(props) {
 
   const [movies, setMovies] = useState(movieCards)
 
@@ -12,8 +12,7 @@ function Movies() {
         id={movie.id}
         posterPath={movie.poster_path}
         votes={movie.vote_count}
-        title={movie.title}
-        key={movie.id}
+        setMovieDetailsID={props.setMovieDetailsID}
         />
     )
   })
