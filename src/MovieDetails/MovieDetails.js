@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Genre from '../Genres/Genre'
 
 function MovieDetails(props) {
+  const movie_details = null;//make a get here
   const [movieDetailsInfo, setMovieDetails] = useState(movieDetails)
 
   const genreCards = movieDetailsInfo.genre_ids.map(genre_id => {
