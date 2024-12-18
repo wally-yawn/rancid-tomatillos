@@ -20,7 +20,7 @@ function MovieCard({id,posterPath,votes,title,setMovieDetailsID}) {
 
   return (
     <div className='movie_card'>
-      <img src={posterPath} alt={title} onClick={() => setMovieDetailsID(id)}/>
+      <img className='poster' src={posterPath} alt={title} onClick={() => setMovieDetailsID(id)}/>
       <section className='voting'>
         <button className='upvote' aria-label='Upvote'>
           <img src={upvoteIcon}
