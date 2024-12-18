@@ -1,0 +1,6 @@
+{
+  "status": 404,
+  "body": {
+    "error": "No movie found with an ID of batman. Try again with an existing movie ID."
+  }
+}

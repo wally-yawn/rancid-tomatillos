@@ -4,17 +4,28 @@ import Genre from '../Genres/Genre'
 
 function MovieDetails(props) {
   const [movieDetailsInfo, setMovieDetails] = useState(null)
+  const [error, setError] = useState(null)
+
   useEffect(() => {getMovieDetails()}, [])
-  
+
   function getMovieDetails() {
     fetch(`https://rancid-tomatillos-api.onrender.com/api/v1/movies/${props.id}`, {
       method: 'GET', 
       headers: {'Content-Type': 'application/json'}
     })
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(error);
+      }
+      return response.json();
+    })
     .then(data => setMovieDetails(data))
-    .catch(error => console.log(error))
+    .catch(error => setError(error))
   ;}
+
+  if (error !== null) {
+    return <p>Oh no! Something went wrong!</p>;
+  }
 
   if (!movieDetailsInfo) {
     return <p>Loading...</p>;

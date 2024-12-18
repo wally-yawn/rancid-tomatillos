@@ -21,7 +21,7 @@ function App() {
           <h1>rancid tomatillos...</h1>
           {movieDetailsId !== null && (
             <button className='home-button' aria-label='home'>
-            <img src={homeIcon}
+            <img className='home-button-img' src={homeIcon}
               alt="home"
               onClick={() => setMovieDetailsID(null)}/>
             </button>)}
