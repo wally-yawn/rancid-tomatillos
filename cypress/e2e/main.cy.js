@@ -10,6 +10,7 @@ describe('Main Page', () => {
     .contains('rancid tomatillos')
     .get('.movie-container').find('.movie_card').should('have.lengthOf', 55)
     .get('.movie-container > :nth-child(1)').find('.poster').should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//ow3wq89wM8qd5X7hWKxiRfsFf9C.jpg')
+    .get('.movie-container > :nth-child(1)').find('.poster').should('have.attr', 'alt', '12 Angry Men')
     .get('.movie-container > :nth-child(1)').find('.votes').contains('8511')
   })
 })

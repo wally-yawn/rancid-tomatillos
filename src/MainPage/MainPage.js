@@ -13,6 +13,7 @@ function Movies(props) {
         posterPath={movie.poster_path}
         key={movie.id}
         id={movie.id}
+        title={movie.title}
         votes={movie.vote_count}
         setMovieDetailsID={props.setMovieDetailsID}
         />
