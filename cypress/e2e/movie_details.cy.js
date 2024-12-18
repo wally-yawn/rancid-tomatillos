@@ -26,4 +26,12 @@ describe('Main Page', () => {
     //check url
     .get('.movie-container').find('.movie_card').should('have.lengthOf', 4)
   })
+
+  // it('displays an error if the movie id is not found', () => {
+  //   cy.visit('http://localhost:3000/123456789')
+  //   cy.intercept('GET', 'https://rancid-tomatillos-api.onrender.com/api/v1/movies/123456789',{
+  //     fixture: 'movie_details_error'
+  //   })
+  //   cy.get('.error').contains('Oh no! Something went wrong!')
+  // })
 })

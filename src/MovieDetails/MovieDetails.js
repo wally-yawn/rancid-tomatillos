@@ -24,7 +24,7 @@ function MovieDetails(props) {
   ;}
 
   if (error !== null) {
-    return <p>Oh no! Something went wrong!</p>;
+    return <p className='error'>Oh no! Something went wrong!</p>;
   }
 
   if (!movieDetailsInfo) {
