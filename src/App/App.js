@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import './App.css';
 import MainPage from '../MainPage/MainPage';
@@ -6,8 +5,6 @@ import homeIcon from '../icons/home.png';
 import MovieDetails from '../MovieDetails/MovieDetails';
 
 function App() {
-  const [movieDetailsId, setMovieDetailsId] = useState(null)
-
   return (
     <BrowserRouter>
       <main className='App'>
