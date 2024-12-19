@@ -16,8 +16,10 @@ Clone this repo, then run `npm install`, `npm install react-router-dome`, then `
 
 ## App Preview
 Main Page
+<img width="1114" alt="Screenshot 2024-12-19 at 3 00 35 PM" src="https://github.com/user-attachments/assets/18448024-6d83-4904-9321-e1da07399b1b" />
 
 Movie Details
+![Screenshot 2024-12-19 at 3 01 37 PM](https://github.com/user-attachments/assets/0ab7d526-5cf1-44cb-8a7a-aab8c6847bb4)
 
 ## Context
 This project was the first paired project of Mod 3 at Turing. 
