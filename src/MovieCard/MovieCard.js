@@ -5,7 +5,7 @@ import upvoteIcon from '../icons/upvote.png';
 import downvoteIcon from '../icons/downvote.png';
 
 function MovieCard({ id, posterPath, votes, title, onMovieClick }) {
-  const [voteCount, setVotes] = useState(Number(votes) || 0);
+  const [voteCount, setVotes] = useState(Number(votes));
   const [error, setError] = useState(null);
   const url = "https://rancid-tomatillos-api.onrender.com/api/v1/movies";
 
@@ -27,10 +27,6 @@ function MovieCard({ id, posterPath, votes, title, onMovieClick }) {
         setVotes(Number(data.vote_count) || 0);
       })
       .catch((error) => setError(error.message));
-  }
-
-  function handleClick() {
-    onMovieClick(id);
   }
 
   if (error) {
