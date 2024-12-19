@@ -1,48 +1,59 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './MovieCard.css';
 import upvoteIcon from '../icons/upvote.png';
 import downvoteIcon from '../icons/downvote.png';
 
-function MovieCard({id,posterPath,votes,title,setMovieDetailsID}) {
-  const [voteCount, setVotes] = useState(votes)
+function MovieCard({ id, posterPath, votes, title, onMovieClick }) {
+  const [voteCount, setVotes] = useState(Number(votes) || 0);
+  const [error, setError] = useState(null);
+  const url = "https://rancid-tomatillos-api.onrender.com/api/v1/movies";
 
-  function getVotes() {
-    setVotes();
+  function handleVote(vote_direction) {
+    const newVoteCount = vote_direction.vote_direction === "up" ? voteCount + 1 : voteCount - 1;
+  setVotes(newVoteCount);
+    fetch(`${url}/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(vote_direction),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to update vote. Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setVotes(Number(data.vote_count) || 0);
+      })
+      .catch((error) => setError(error.message));
   }
 
-  function upvote() {
-    setVotes(voteCount + 1)
+  function handleClick() {
+    onMovieClick(id);
   }
-  
-  function downvote() {
-    setVotes(voteCount - 1)
+
+  if (error) {
+    return <p className="error-message">{error}</p>;
   }
 
   return (
     <div className='movie_card'>
-      <img src={posterPath} alt={title} onClick={() => setMovieDetailsID(id)}/>
+      <img 
+        src={posterPath}
+        alt={title} 
+        onClick={handleClick} 
+      />
       <section className='voting'>
-        <button className='upvote' aria-label='Upvote'>
-          <img src={upvoteIcon}
-            alt="upvote"
-            onClick={() => upvote(id)}/>
+        <button className='upvote' aria-label='Upvote' onClick={() => handleVote({ vote_direction: "up" })}>
+          <img src={upvoteIcon} alt="upvote" />
         </button>
-        <p className='votes' >{voteCount}</p>
-        <button className='downvote' aria-label='Downvote'>
-          <img src={downvoteIcon}
-          alt="downvote"
-          onClick={() => downvote(id)}/>
+        <p className='votes'>{voteCount}</p>
+        <button className='downvote' aria-label='Downvote' onClick={() => handleVote({ vote_direction: "down" })}>
+          <img src={downvoteIcon} alt="downvote" />
         </button>
       </section>
     </div>
   );
 }
 
-function nil() {
-  console.log("nothing")
-}
-
-function alsoNil() {
-  console.log("also nothing")
-}
 export default MovieCard;
