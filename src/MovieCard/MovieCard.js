@@ -29,10 +29,6 @@ function MovieCard({ id, posterPath, votes, title, onMovieClick }) {
       .catch((error) => setError(error.message));
   }
 
-  function handleClick() {
-    onMovieClick(id);
-  }
-
   if (error) {
     return <p className="error-message">{error}</p>;
   }
