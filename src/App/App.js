@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import './App.css';
 import MainPage from '../MainPage/MainPage';
 import homeIcon from '../icons/home.png';
-// import searchIcon from '../icons/search.png';
 import MovieDetails from '../MovieDetails/MovieDetails';
 
 function App() {
