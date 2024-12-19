@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './MovieCard.css';
 import upvoteIcon from '../icons/upvote.png';
 import downvoteIcon from '../icons/downvote.png';
@@ -38,11 +39,9 @@ function MovieCard({ id, posterPath, votes, title, onMovieClick }) {
 
   return (
     <div className='movie_card'>
-      <img 
-        src={posterPath}
-        alt={title} 
-        onClick={handleClick} 
-      />
+      <Link to={`/movies/${id}`}>
+        <img src={posterPath} alt={title} />
+      </Link>
       <section className='voting'>
         <button className='upvote' aria-label='Upvote' onClick={() => handleVote({ vote_direction: "up" })}>
           <img src={upvoteIcon} alt="upvote" />

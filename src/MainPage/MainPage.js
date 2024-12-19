@@ -34,10 +34,6 @@ function MainPage({ movieDetailsId, setMovieDetailsId }) {
     return <p>Loading...</p>;
   }
 
-  function handleMovieClick(id) {
-    setMovieDetailsId(id);
-  }
-
   return (
     <div>
       {movieDetailsId ? (
@@ -51,7 +47,6 @@ function MainPage({ movieDetailsId, setMovieDetailsId }) {
               posterPath={movie.poster_path}
               votes={movie.vote_count}
               title={movie.title}
-              onMovieClick={handleMovieClick}
             />
           ))}
         </section>

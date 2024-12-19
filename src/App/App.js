@@ -1,35 +1,34 @@
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import './App.css';
 import MainPage from '../MainPage/MainPage';
 import homeIcon from '../icons/home.png';
 // import searchIcon from '../icons/search.png';
 import MovieDetails from '../MovieDetails/MovieDetails';
-// Example imports (for later):
-// import moviePosters from '../data/movie_posters';
-// import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
 function App() {
   const [movieDetailsId, setMovieDetailsId] = useState(null)
 
   return (
-    <main className='App'>
-        <header>
-          <h1>rancid tomatillos...</h1>
-          {movieDetailsId !== null && (
-            <button className='home-button' aria-label='home'>
-            <img src={homeIcon}
-              alt="home"
-              onClick={() => setMovieDetailsId(null)}/>
-            </button>)}
-        </header>
-        <section>
-          {movieDetailsId !== null ? (
-            <MovieDetails id={movieDetailsId}/>
-          ) : (
-            <MainPage setMovieDetailsId={setMovieDetailsId} />
-          )}
-        </section>
-    </main>
+    <BrowserRouter>
+      <main className='App'>
+          <header>
+            <h1>rancid tomatillos...</h1>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? 'hidden' : 'home-button')}
+            >
+              <img src={homeIcon} alt="Home" />
+            </NavLink>
+          </header>
+          <section>
+          <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/movies/:id" element={<MovieDetails />} />
+            </Routes>
+          </section>
+      </main>
+    </BrowserRouter>
   );
 }
 

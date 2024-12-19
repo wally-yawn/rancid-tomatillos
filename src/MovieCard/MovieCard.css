@@ -9,10 +9,12 @@
   align-content: center;
   border-style: hidden;
   border-radius: 10px;
+  opacity: 80%;
 }
 
 .movie_card:hover {
   transform: scale(1.01);
+  opacity: 100%;
   box-shadow: 1px 3px 10px rgba(1, 9, 78, 0.67);
   cursor: pointer;
 }

@@ -1,14 +1,16 @@
 import './MovieDetails.css';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Genre from '../Genres/Genre'
 
-function MovieDetails({ id }) {
+function MovieDetails() {
   const [movieDetailsInfo, setMovieDetails] = useState(null)
   const [error, setError] = useState(null);
+  const { id } = useParams();
   
   useEffect(() => {
     getMovieDetails();
-  }, []);
+  }, [id]);
 
   function getMovieDetails() {
     fetch(`https://rancid-tomatillos-api.onrender.com/api/v1/movies/${id}`, {
