@@ -18,7 +18,7 @@ function App() {
               to="/"
               className={({ isActive }) => (isActive ? 'hidden' : 'home-button')}
             >
-              <img src={homeIcon} alt="Home" />
+              <img className='home-button-img' src={homeIcon} alt="Home" />
             </NavLink>
           </header>
           <section>

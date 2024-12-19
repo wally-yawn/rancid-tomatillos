@@ -24,7 +24,7 @@ function MovieDetails() {
       return response.json();
     })
     .then(data => setMovieDetails(data))
-    .catch(error => console.log(error))
+    .catch(error => setError(error.message))
   ;}
 
   if (error) {
@@ -35,11 +35,9 @@ function MovieDetails() {
     return <p>Loading...</p>;
   }
 
-  const genreCards = movieDetailsInfo.genre_ids.map(genre_id => {
-    return (
-      <Genre name={genre_id} key ={genre_id}/>
-    )
-  })
+  const genreCards = movieDetailsInfo.genre_ids?.map((genre_id) => (
+    <Genre name={genre_id} key={genre_id} />
+  )) || <p>No genres available</p>;
 
   return (
     <section className='MovieDetails'>
