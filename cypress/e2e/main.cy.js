@@ -1,12 +1,13 @@
-// Mock data to use for testing:
-import posters from '../fixtures/movie_posters.json'
-// import details from '../fixtures/movie_details.json' (you will need to add your own mock data to this file!)
-
 describe('Main Page', () => {
-  it('displays title on page load', () => {
-    // hint: you'll want to add an intercept here if you are making a network request on page load!
+
+  beforeEach(() => {
     cy.visit('http://localhost:3000/')
-    .get('h1').contains('rancid tomatillos')
+    cy.intercept('GET', 'https://rancid-tomatillos-api.onrender.com/api/v1/movies',{
+      fixture: 'movie_posters'
+    })
+  })
+  it('displays title on page load', () => {
+    cy.get('h1').contains('rancid tomatillos')
     .get('.home-button').should('not.exist')
     .get('.movie-container').find('.movie_card').should('have.lengthOf', 4)
     .get('.movie-container > :nth-child(1)').find('.poster').should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//qJ2tW6WMUDux911r6m7haRef0WH.jpg')
