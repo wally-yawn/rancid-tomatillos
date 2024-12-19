@@ -42,11 +42,13 @@ function MovieDetails() {
   return (
     <section className='MovieDetails'>
       <img className = 'movie-backdrop' src = {movieDetailsInfo.backdrop_path} alt = {movieDetailsInfo.title}/>
-      <h2 className = 'movie-title'>{movieDetailsInfo.title}</h2>
-      <section className='genres'>
-        {genreCards}
+      <section className='text-area'>
+        <h2 className = 'movie-title'>{movieDetailsInfo.title}</h2>
+        <section className='genres'>
+          {genreCards}
+        </section>
+        <p className = 'overview'>{movieDetailsInfo.overview}</p>
       </section>
-      <p className = 'overview'>{movieDetailsInfo.overview}</p>
     </section>
   );
 }
