@@ -7,10 +7,11 @@ describe('Main Page', () => {
       fixture: 'movie_details'
     })
   })
+  //add intercept for the main page
 
   it('displays movie details after clicking movie poster on main page', () => {
     cy.get('.movie-container > :nth-child(1)').find('.poster').click()
-    //check the url
+    //check the url when router is implemented
     .get('h2').contains('The Dark Knight')
     .get('.movie-backdrop').should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//nMKdUUepR0i5zn0y1T4CsSB5chy.jpg')
     .get('.movie-backdrop').should('have.attr', 'alt', 'The Dark Knight')
@@ -23,7 +24,7 @@ describe('Main Page', () => {
   it('displays the home page when clicking the home button', () => {
     cy.get('.movie-container > :nth-child(1)').find('.poster').click()
     .get('.home-button').click()
-    //check url
+    //check url when router is implemented
     .get('.movie-container').find('.movie_card').should('have.lengthOf', 4)
   })
 
