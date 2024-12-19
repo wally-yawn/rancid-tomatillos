@@ -2,19 +2,32 @@ import './MovieDetails.css';
 import { useState, useEffect } from 'react';
 import Genre from '../Genres/Genre'
 
-function MovieDetails(props) {
+function MovieDetails({ id }) {
   const [movieDetailsInfo, setMovieDetails] = useState(null)
-  useEffect(() => {getMovieDetails()}, [])
+  const [error, setError] = useState(null);
   
+  useEffect(() => {
+    getMovieDetails();
+  }, []);
+
   function getMovieDetails() {
-    fetch(`https://rancid-tomatillos-api.onrender.com/api/v1/movies/${props.id}`, {
+    fetch(`https://rancid-tomatillos-api.onrender.com/api/v1/movies/${id}`, {
       method: 'GET', 
       headers: {'Content-Type': 'application/json'}
     })
-    .then(response => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch movie details. Status: ${response.status}`);
+      }
+      return response.json();
+    })
     .then(data => setMovieDetails(data))
     .catch(error => console.log(error))
   ;}
+
+  if (error) {
+    return <p className="error-message">{error}</p>;
+  }
 
   if (!movieDetailsInfo) {
     return <p>Loading...</p>;
