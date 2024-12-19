@@ -25,7 +25,7 @@ Movie Details
 This project was the first paired project of Mod 3 at Turing. 
 
 ## Learning Goals
-The learning goals of this project was to implement React components, making use of states and props, as well as Router to control navigation through the site. The project was tested using cypress.
+The learning goals of this project was to implement React components, making use of states and props, as well as Router to control navigation through the site. We also made use of fetch to load data from a third party api. The project was tested using cypress. 
 
 ## Wins and Challenges
 The big win is a functional website which is easy to navigate, including with a screenreader. The big challenges we faced were in using an external api to fetch data, which we were able to overcome.
