@@ -40,7 +40,7 @@ function MovieCard({ id, posterPath, votes, title, onMovieClick }) {
   return (
     <div className='movie_card'>
       <Link to={`/movies/${id}`}>
-        <img src={posterPath} alt={title} />
+        <img className='poster' src={posterPath} alt={title} />
       </Link>
       <section className='voting'>
         <button className='upvote' aria-label='Upvote' onClick={() => handleVote({ vote_direction: "up" })}>
